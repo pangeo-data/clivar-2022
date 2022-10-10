@@ -29,7 +29,7 @@ dset = xr.open_mfdataset(fileset, combine='by_coords', use_cftime=True)
 Cell [0;32mIn [6], line 5[0m
 [1;32m      2[0m fileset [38;5;241m=[39m [fs[38;5;241m.[39mopen(file) [38;5;28;01mfor[39;00m file [38;5;129;01min[39;00m remote_files]
 [1;32m      4[0m [38;5;66;03m# This works[39;00m
-[0;32m----> 5[0m dset [38;5;241m=[39m xr[38;5;241m.[39mopen_mfdataset(fileset, combine[38;5;241m=[39m[38;5;124m'[39m[38;5;124mby_coords[39m[38;5;124m'[39m, use_cftime[38;5;241m=[39m[38;5;28;01mTrue[39;00m)
+[0;32m----> 5[0m dset [38;5;241m=[39m [43mxr[49m[38;5;241;43m.[39;49m[43mopen_mfdataset[49m[43m([49m[43mfileset[49m[43m,[49m[43m [49m[43mcombine[49m[38;5;241;43m=[39;49m[38;5;124;43m'[39;49m[38;5;124;43mby_coords[39;49m[38;5;124;43m'[39;49m[43m,[49m[43m [49m[43muse_cftime[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m
 
 File [0;32m~/micromamba-root/envs/clivar/lib/python3.10/site-packages/xarray/backends/api.py:953[0m, in [0;36mopen_mfdataset[0;34m(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, **kwargs)[0m
 [1;32m    950[0m     paths [38;5;241m=[39m [os[38;5;241m.[39mfspath(p) [38;5;28;01mif[39;00m [38;5;28misinstance[39m(p, os[38;5;241m.[39mPathLike) [38;5;28;01melse[39;00m p [38;5;28;01mfor[39;00m p [38;5;129;01min[39;00m paths]
