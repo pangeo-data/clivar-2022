@@ -17,13 +17,13 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-NDVI_AOI.isel(time=0).plot(cmap="RdYlGn")
+tas_AOI.isel(time=0).plot(cmap="coolwarm")
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mImportError[0m                               Traceback (most recent call last)
-Cell [0;32mIn [25], line 1[0m
-[0;32m----> 1[0m [43mNDVI_AOI[49m[38;5;241;43m.[39;49m[43misel[49m[43m([49m[43mtime[49m[38;5;241;43m=[39;49m[38;5;241;43m0[39;49m[43m)[49m[38;5;241;43m.[39;49m[43mplot[49m[43m([49m[43mcmap[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mRdYlGn[39;49m[38;5;124;43m"[39;49m[43m)[49m
+Cell [0;32mIn [27], line 1[0m
+[0;32m----> 1[0m [43mtas_AOI[49m[38;5;241;43m.[39;49m[43misel[49m[43m([49m[43mtime[49m[38;5;241;43m=[39;49m[38;5;241;43m0[39;49m[43m)[49m[38;5;241;43m.[39;49m[43mplot[49m[43m([49m[43mcmap[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43mcoolwarm[39;49m[38;5;124;43m"[39;49m[43m)[49m
 
 File [0;32m~/micromamba-root/envs/clivar/lib/python3.10/site-packages/xarray/plot/plot.py:869[0m, in [0;36m_PlotMethods.__call__[0;34m(self, **kwargs)[0m
 [1;32m    868[0m [38;5;28;01mdef[39;00m [38;5;21m__call__[39m([38;5;28mself[39m, [38;5;241m*[39m[38;5;241m*[39mkwargs):
