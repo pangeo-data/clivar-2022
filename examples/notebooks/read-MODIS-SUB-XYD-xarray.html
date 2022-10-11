@@ -136,6 +136,11 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="../../pangeo101/xarray_introduction.html">
+   Handling multi-dimensional arrays with xarray
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="../../pangeo101/visualization.html">
    Interactive plotting with holoviews
   </a>
@@ -598,10 +603,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading cmaps-1.0.5.tar.gz (231 kB)
-?25l     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/231.1 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+?25l
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">231.1/231.1 kB</span> <span class=" -Color -Color-Red">7.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">0.0/231.1 kB</span> <span class=" -Color -Color-Red">?</span> eta <span class=" -Color -Color-Cyan">-:--:--</span>
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">231.1/231.1 kB</span> <span class=" -Color -Color-Red">7.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
 ?25h
 </pre></div>
 </div>
@@ -611,14 +617,12 @@ title="Print to PDF"
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
 ?25hRequirement already satisfied: matplotlib in /home/runner/micromamba-root/envs/clivar/lib/python3.10/site-packages (from cmaps) (3.4.3)
 Requirement already satisfied: numpy in /home/runner/micromamba-root/envs/clivar/lib/python3.10/site-packages (from cmaps) (1.21.2)
-Requirement already satisfied: pyparsing&gt;=2.2.1 in /home/runner/micromamba-root/envs/clivar/lib/python3.10/site-packages (from matplotlib-&gt;cmaps) (2.4.7)
 Requirement already satisfied: kiwisolver&gt;=1.0.1 in /home/runner/micromamba-root/envs/clivar/lib/python3.10/site-packages (from matplotlib-&gt;cmaps) (1.3.2)
-Requirement already satisfied: cycler&gt;=0.10 in /home/runner/micromamba-root/envs/clivar/lib/python3.10/site-packages (from matplotlib-&gt;cmaps) (0.10.0)
 Requirement already satisfied: pillow&gt;=6.2.0 in /home/runner/micromamba-root/envs/clivar/lib/python3.10/site-packages (from matplotlib-&gt;cmaps) (8.3.2)
 Requirement already satisfied: python-dateutil&gt;=2.7 in /home/runner/micromamba-root/envs/clivar/lib/python3.10/site-packages (from matplotlib-&gt;cmaps) (2.8.2)
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: six in /home/runner/micromamba-root/envs/clivar/lib/python3.10/site-packages (from cycler&gt;=0.10-&gt;matplotlib-&gt;cmaps) (1.16.0)
+Requirement already satisfied: pyparsing&gt;=2.2.1 in /home/runner/micromamba-root/envs/clivar/lib/python3.10/site-packages (from matplotlib-&gt;cmaps) (2.4.7)
+Requirement already satisfied: cycler&gt;=0.10 in /home/runner/micromamba-root/envs/clivar/lib/python3.10/site-packages (from matplotlib-&gt;cmaps) (0.10.0)
+Requirement already satisfied: six in /home/runner/micromamba-root/envs/clivar/lib/python3.10/site-packages (from cycler&gt;=0.10-&gt;matplotlib-&gt;cmaps) (1.16.0)
 Building wheels for collected packages: cmaps
 </pre></div>
 </div>
@@ -632,11 +636,9 @@ Building wheels for collected packages: cmaps
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span> done
-?25h  Created wheel for cmaps: filename=cmaps-1.0.5-py3-none-any.whl size=298178 sha256=db2cf75b5d049448731ddf5eb18ff77d0b2130026fd89c6824625952261fc8a9
+?25h  Created wheel for cmaps: filename=cmaps-1.0.5-py3-none-any.whl size=298178 sha256=504ed4df1c19f72c736c079bac15edfbf52b5b246ebc43cb67ec5a1a50187490
   Stored in directory: /home/runner/.cache/pip/wheels/14/75/38/1080415a19e9e718d1f6bd40852d9e0003c8f2c7fa80e44904
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully built cmaps
+Successfully built cmaps
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: cmaps
