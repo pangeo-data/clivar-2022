@@ -136,11 +136,6 @@ const thebe_selector_output = ".output, .cell_output"
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../pangeo101/xarray_introduction.html">
-   Handling multi-dimensional arrays with xarray
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="../../pangeo101/visualization.html">
    Interactive plotting with holoviews
   </a>
@@ -719,92 +714,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="ne">RuntimeError</span>: module compiled against API version 0x10 but this version of numpy is 0xe
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="ne">RuntimeError</span>: module compiled against API version 0x10 but this version of numpy is 0xe
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="ne">RuntimeError</span>: module compiled against API version 0x10 but this version of numpy is 0xe
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="ne">RuntimeError</span>: module compiled against API version 0x10 but this version of numpy is 0xe
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ImportError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="kn">import</span> <span class="nn">intake</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="kn">import</span> <span class="nn">cftime</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="kn">import</span> <span class="nn">cartopy.crs</span> <span class="k">as</span> <span class="nn">ccrs</span>
-<span class="g g-Whitespace">      </span><span class="mi">7</span> <span class="n">get_ipython</span><span class="p">()</span><span class="o">.</span><span class="n">run_line_magic</span><span class="p">(</span><span class="s1">&#39;matplotlib&#39;</span><span class="p">,</span> <span class="s1">&#39;inline&#39;</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">micromamba</span><span class="o">-</span><span class="n">root</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">clivar</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="fm">__init__</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">107</span>
-<span class="g g-Whitespace">    </span><span class="mi">103</span> <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="g g-Whitespace">    </span><span class="mi">105</span> <span class="c1"># cbook must import matplotlib only within function</span>
-<span class="g g-Whitespace">    </span><span class="mi">106</span> <span class="c1"># definitions, so it is safe to import from it here.</span>
-<span class="ne">--&gt; </span><span class="mi">107</span> <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">docstring</span><span class="p">,</span> <span class="n">rcsetup</span>
-<span class="g g-Whitespace">    </span><span class="mi">108</span> <span class="kn">from</span> <span class="nn">matplotlib.cbook</span> <span class="kn">import</span> <span class="n">MatplotlibDeprecationWarning</span><span class="p">,</span> <span class="n">sanitize_sequence</span>
-<span class="g g-Whitespace">    </span><span class="mi">109</span> <span class="kn">from</span> <span class="nn">matplotlib.cbook</span> <span class="kn">import</span> <span class="n">mplDeprecation</span>  <span class="c1"># deprecated</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">micromamba</span><span class="o">-</span><span class="n">root</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">clivar</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">rcsetup</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">26</span>
-<span class="g g-Whitespace">     </span><span class="mi">24</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">animation</span><span class="p">,</span> <span class="n">cbook</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="kn">from</span> <span class="nn">matplotlib.cbook</span> <span class="kn">import</span> <span class="n">ls_mapper</span>
-<span class="ne">---&gt; </span><span class="mi">26</span> <span class="kn">from</span> <span class="nn">matplotlib.colors</span> <span class="kn">import</span> <span class="n">Colormap</span><span class="p">,</span> <span class="n">is_color_like</span>
-<span class="g g-Whitespace">     </span><span class="mi">27</span> <span class="kn">from</span> <span class="nn">matplotlib.fontconfig_pattern</span> <span class="kn">import</span> <span class="n">parse_fontconfig_pattern</span>
-<span class="g g-Whitespace">     </span><span class="mi">28</span> <span class="kn">from</span> <span class="nn">matplotlib._enums</span> <span class="kn">import</span> <span class="n">JoinStyle</span><span class="p">,</span> <span class="n">CapStyle</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">micromamba</span><span class="o">-</span><span class="n">root</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">clivar</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">colors</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">82</span>
-<span class="g g-Whitespace">     </span><span class="mi">80</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="g g-Whitespace">     </span><span class="mi">81</span> <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="ne">---&gt; </span><span class="mi">82</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">cbook</span><span class="p">,</span> <span class="n">scale</span>
-<span class="g g-Whitespace">     </span><span class="mi">83</span> <span class="kn">from</span> <span class="nn">._color_data</span> <span class="kn">import</span> <span class="n">BASE_COLORS</span><span class="p">,</span> <span class="n">TABLEAU_COLORS</span><span class="p">,</span> <span class="n">CSS4_COLORS</span><span class="p">,</span> <span class="n">XKCD_COLORS</span>
-<span class="g g-Whitespace">     </span><span class="mi">86</span> <span class="k">class</span> <span class="nc">_ColorMapping</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">micromamba</span><span class="o">-</span><span class="n">root</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">clivar</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">scale</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">18</span>
-<span class="g g-Whitespace">     </span><span class="mi">16</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="g g-Whitespace">     </span><span class="mi">17</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">docstring</span>
-<span class="ne">---&gt; </span><span class="mi">18</span> <span class="kn">from</span> <span class="nn">matplotlib.ticker</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">19</span>     <span class="n">NullFormatter</span><span class="p">,</span> <span class="n">ScalarFormatter</span><span class="p">,</span> <span class="n">LogFormatterSciNotation</span><span class="p">,</span> <span class="n">LogitFormatter</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">20</span>     <span class="n">NullLocator</span><span class="p">,</span> <span class="n">LogLocator</span><span class="p">,</span> <span class="n">AutoLocator</span><span class="p">,</span> <span class="n">AutoMinorLocator</span><span class="p">,</span>
-<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="n">SymmetricalLogLocator</span><span class="p">,</span> <span class="n">LogitLocator</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">22</span> <span class="kn">from</span> <span class="nn">matplotlib.transforms</span> <span class="kn">import</span> <span class="n">Transform</span><span class="p">,</span> <span class="n">IdentityTransform</span>
-<span class="g g-Whitespace">     </span><span class="mi">25</span> <span class="k">class</span> <span class="nc">ScaleBase</span><span class="p">:</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">micromamba</span><span class="o">-</span><span class="n">root</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">clivar</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">ticker</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">179</span>
-<span class="g g-Whitespace">    </span><span class="mi">177</span> <span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="g g-Whitespace">    </span><span class="mi">178</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span><span class="p">,</span> <span class="n">cbook</span>
-<span class="ne">--&gt; </span><span class="mi">179</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">transforms</span> <span class="k">as</span> <span class="n">mtransforms</span>
-<span class="g g-Whitespace">    </span><span class="mi">181</span> <span class="n">_log</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">183</span> <span class="n">__all__</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;TickHelper&#39;</span><span class="p">,</span> <span class="s1">&#39;Formatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FixedFormatter&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">184</span>            <span class="s1">&#39;NullFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FuncFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;FormatStrFormatter&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">185</span>            <span class="s1">&#39;StrMethodFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;ScalarFormatter&#39;</span><span class="p">,</span> <span class="s1">&#39;LogFormatter&#39;</span><span class="p">,</span>
-   <span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">192</span>            <span class="s1">&#39;MultipleLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;MaxNLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;AutoMinorLocator&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">193</span>            <span class="s1">&#39;SymmetricalLogLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;LogitLocator&#39;</span><span class="p">,</span> <span class="s1">&#39;OldAutoLocator&#39;</span><span class="p">)</span>
-
-<span class="n">File</span> <span class="o">~/</span><span class="n">micromamba</span><span class="o">-</span><span class="n">root</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">clivar</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="mf">.10</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span><span class="o">/</span><span class="n">matplotlib</span><span class="o">/</span><span class="n">transforms</span><span class="o">.</span><span class="n">py</span><span class="p">:</span><span class="mi">46</span>
-<span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span>
-<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">_api</span>
-<span class="ne">---&gt; </span><span class="mi">46</span> <span class="kn">from</span> <span class="nn">matplotlib._path</span> <span class="kn">import</span> <span class="p">(</span>
-<span class="g g-Whitespace">     </span><span class="mi">47</span>     <span class="n">affine_transform</span><span class="p">,</span> <span class="n">count_bboxes_overlapping_bbox</span><span class="p">,</span> <span class="n">update_path_extents</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">48</span> <span class="kn">from</span> <span class="nn">.path</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="g g-Whitespace">     </span><span class="mi">50</span> <span class="n">DEBUG</span> <span class="o">=</span> <span class="kc">False</span>
-
-<span class="ne">ImportError</span>: numpy.core.multiarray failed to import
-</pre></div>
-</div>
-</div>
 </div>
 </section>
 <section id="open-cmip6-online-catalog">
@@ -818,7 +727,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><p><strong>pangeo-cmip6 catalog with 7693 dataset(s) from 518834 asset(s)</strong>:</p> <div>
+<div class="output text_html"><p><strong>pangeo-cmip6 catalog with 7674 dataset(s) from 514818 asset(s)</strong>:</p> <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -866,7 +775,7 @@ title="Print to PDF"
     </tr>
     <tr>
       <th>variable_id</th>
-      <td>709</td>
+      <td>700</td>
     </tr>
     <tr>
       <th>grid_label</th>
@@ -874,7 +783,7 @@ title="Print to PDF"
     </tr>
     <tr>
       <th>zstore</th>
-      <td>518834</td>
+      <td>514818</td>
     </tr>
     <tr>
       <th>dcpp_init_year</th>
@@ -882,7 +791,11 @@ title="Print to PDF"
     </tr>
     <tr>
       <th>version</th>
-      <td>718</td>
+      <td>736</td>
+    </tr>
+    <tr>
+      <th>derived_variable_id</th>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -966,22 +879,30 @@ title="Print to PDF"
 	&#39;activity_id.institution_id.source_id.experiment_id.table_id.grid_label&#39;
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3654/306383366.py:1: DeprecationWarning: cdf_kwargs and zarr_kwargs are deprecated and will be removed in a future version. Please use xarray_open_kwargs instead.
+  dset_dict = cat.to_dataset_dict(zarr_kwargs={&#39;use_cftime&#39;:True})
+</pre></div>
+</div>
 <div class="output text_html">
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+</div><div class="output text_html">
 <div>
-    <style>
-        /* Turns off some styling */
-        progress {
-            /* gets rid of default border in Firefox and Opera. */
-            border: none;
-            /* Needs to be in here for Safari polyfill so background images work as expected. */
-            background-size: auto;
-        }
-        .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-            background: #F44336;
-        }
-    </style>
   <progress value='1' class='' max='1' style='width:300px; height:20px; vertical-align: middle;'></progress>
-  100.00% [1/1 00:00<00:00]
+  100.00% [1/1 00:00&lt;00:00]
 </div>
 </div></div>
 </div>
@@ -1044,6 +965,7 @@ title="Print to PDF"
 }
 
 html[theme=dark],
+body[data-theme=dark],
 body.vscode-dark {
   --xr-font-color0: rgba(255, 255, 255, 1);
   --xr-font-color2: rgba(255, 255, 255, 0.54);
@@ -1056,7 +978,7 @@ body.vscode-dark {
 }
 
 .xr-wrap {
-  display: block;
+  display: block !important;
   min-width: 300px;
   max-width: 700px;
 }
@@ -1365,32 +1287,34 @@ dl.xr-attrs {
   fill: currentColor;
 }
 </style><pre class='xr-text-repr-fallback'>&lt;xarray.Dataset&gt;
-Dimensions:    (lat: 192, lon: 288, member_id: 1, nbnd: 2, time: 1980)
+Dimensions:         (lat: 192, nbnd: 2, lon: 288, member_id: 1,
+                     dcpp_init_year: 1, time: 1980)
 Coordinates:
-  * lat        (lat) float64 -90.0 -89.06 -88.12 -87.17 ... 88.12 89.06 90.0
-    lat_bnds   (lat, nbnd) float32 dask.array&lt;chunksize=(192, 2), meta=np.ndarray&gt;
-  * lon        (lon) float64 0.0 1.25 2.5 3.75 5.0 ... 355.0 356.2 357.5 358.8
-    lon_bnds   (lon, nbnd) float32 dask.array&lt;chunksize=(288, 2), meta=np.ndarray&gt;
-  * time       (time) object 1850-01-15 12:00:00 ... 2014-12-15 12:00:00
-    time_bnds  (time, nbnd) object dask.array&lt;chunksize=(1980, 2), meta=np.ndarray&gt;
-  * member_id  (member_id) &lt;U8 &#x27;r1i1p1f1&#x27;
+  * lat             (lat) float64 -90.0 -89.06 -88.12 ... 88.12 89.06 90.0
+    lat_bnds        (lat, nbnd) float32 dask.array&lt;chunksize=(192, 2), meta=np.ndarray&gt;
+  * lon             (lon) float64 0.0 1.25 2.5 3.75 ... 355.0 356.2 357.5 358.8
+    lon_bnds        (lon, nbnd) float32 dask.array&lt;chunksize=(288, 2), meta=np.ndarray&gt;
+  * time            (time) object 1850-01-15 12:00:00 ... 2014-12-15 12:00:00
+    time_bnds       (time, nbnd) object dask.array&lt;chunksize=(1980, 2), meta=np.ndarray&gt;
+  * member_id       (member_id) object &#x27;r1i1p1f1&#x27;
+  * dcpp_init_year  (dcpp_init_year) float64 nan
 Dimensions without coordinates: nbnd
 Data variables:
-    tas        (member_id, time, lat, lon) float32 dask.array&lt;chunksize=(1, 600, 192, 288), meta=np.ndarray&gt;
-Attributes: (12/48)
-    Conventions:             CF-1.7 CMIP-6.2
-    activity_id:             CMIP
-    branch_method:           standard
-    branch_time_in_child:    674885.0
-    branch_time_in_parent:   219000.0
-    case_id:                 15
-    ...                      ...
-    variable_id:             tas
-    variant_info:            CMIP6 20th century experiments (1850-2014) with ...
-    variant_label:           r1i1p1f1
-    status:                  2019-10-25;created;by nhn2@columbia.edu
-    intake_esm_varname:      [&#x27;tas&#x27;]
-    intake_esm_dataset_key:  CMIP.NCAR.CESM2.historical.Amon.gn</pre><div class='xr-wrap' hidden><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-7c9c77d4-d6e7-4515-bc3a-279d118ed115' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-7c9c77d4-d6e7-4515-bc3a-279d118ed115' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lat</span>: 192</li><li><span class='xr-has-index'>lon</span>: 288</li><li><span class='xr-has-index'>member_id</span>: 1</li><li><span>nbnd</span>: 2</li><li><span class='xr-has-index'>time</span>: 1980</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-5d656435-f277-4606-84b5-1af892f58c8f' class='xr-section-summary-in' type='checkbox'  checked><label for='section-5d656435-f277-4606-84b5-1af892f58c8f' class='xr-section-summary' >Coordinates: <span>(7)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-90.0 -89.06 -88.12 ... 89.06 90.0</div><input id='attrs-4302c9e4-027e-4ddf-8b1e-6a3340b55c52' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-4302c9e4-027e-4ddf-8b1e-6a3340b55c52' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-40544b52-847d-46ad-af75-767eda123fc0' class='xr-var-data-in' type='checkbox'><label for='data-40544b52-847d-46ad-af75-767eda123fc0' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>title :</span></dt><dd>Latitude</dd><dt><span>type :</span></dt><dd>double</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>valid_max :</span></dt><dd>90.0</dd><dt><span>valid_min :</span></dt><dd>-90.0</dd></dl></div><div class='xr-var-data'><pre>array([-90.      , -89.057592, -88.115183, -87.172775, -86.230366, -85.287958,
+    tas             (member_id, dcpp_init_year, time, lat, lon) float32 dask.array&lt;chunksize=(1, 1, 600, 192, 288), meta=np.ndarray&gt;
+Attributes: (12/61)
+    Conventions:                      CF-1.7 CMIP-6.2
+    activity_id:                      CMIP
+    branch_method:                    standard
+    branch_time_in_child:             674885.0
+    branch_time_in_parent:            219000.0
+    case_id:                          15
+    ...                               ...
+    intake_esm_attrs:variable_id:     tas
+    intake_esm_attrs:grid_label:      gn
+    intake_esm_attrs:zstore:          gs://cmip6/CMIP6/CMIP/NCAR/CESM2/histor...
+    intake_esm_attrs:version:         20190308
+    intake_esm_attrs:_data_format_:   zarr
+    intake_esm_dataset_key:           CMIP.NCAR.CESM2.historical.Amon.gn</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-5fcc02d7-e116-431d-beea-ccc04f996aaf' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-5fcc02d7-e116-431d-beea-ccc04f996aaf' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>lat</span>: 192</li><li><span>nbnd</span>: 2</li><li><span class='xr-has-index'>lon</span>: 288</li><li><span class='xr-has-index'>member_id</span>: 1</li><li><span class='xr-has-index'>dcpp_init_year</span>: 1</li><li><span class='xr-has-index'>time</span>: 1980</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-a702463e-d684-4590-a389-9775161f78a6' class='xr-section-summary-in' type='checkbox'  checked><label for='section-a702463e-d684-4590-a389-9775161f78a6' class='xr-section-summary' >Coordinates: <span>(8)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>-90.0 -89.06 -88.12 ... 89.06 90.0</div><input id='attrs-8b2b41e6-e720-47f1-b61b-f4fdb4ff456e' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8b2b41e6-e720-47f1-b61b-f4fdb4ff456e' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-d9d4e1dc-2e14-4c7b-8a5b-d202d34b2106' class='xr-var-data-in' type='checkbox'><label for='data-d9d4e1dc-2e14-4c7b-8a5b-d202d34b2106' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>bounds :</span></dt><dd>lat_bnds</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>title :</span></dt><dd>Latitude</dd><dt><span>type :</span></dt><dd>double</dd><dt><span>units :</span></dt><dd>degrees_north</dd><dt><span>valid_max :</span></dt><dd>90.0</dd><dt><span>valid_min :</span></dt><dd>-90.0</dd></dl></div><div class='xr-var-data'><pre>array([-90.      , -89.057592, -88.115183, -87.172775, -86.230366, -85.287958,
        -84.34555 , -83.403141, -82.460733, -81.518325, -80.575916, -79.633508,
        -78.691099, -77.748691, -76.806283, -75.863874, -74.921466, -73.979058,
        -73.036649, -72.094241, -71.151832, -70.209424, -69.267016, -68.324607,
@@ -1421,23 +1345,45 @@ Attributes: (12/48)
         68.324607,  69.267016,  70.209424,  71.151832,  72.094241,  73.036649,
         73.979058,  74.921466,  75.863874,  76.806283,  77.748691,  78.691099,
         79.633508,  80.575916,  81.518325,  82.460733,  83.403141,  84.34555 ,
-        85.287958,  86.230366,  87.172775,  88.115183,  89.057592,  90.      ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat_bnds</span></div><div class='xr-var-dims'>(lat, nbnd)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(192, 2), meta=np.ndarray&gt;</div><input id='attrs-59076219-d66e-481a-8c44-7b915c5ec502' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-59076219-d66e-481a-8c44-7b915c5ec502' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-6cddf18b-06c2-4e54-87de-0a3540c7f75a' class='xr-var-data-in' type='checkbox'><label for='data-6cddf18b-06c2-4e54-87de-0a3540c7f75a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><table>
-<tr>
-<td>
-<table>
-  <thead>
-    <tr><td> </td><th> Array </th><th> Chunk </th></tr>
-  </thead>
-  <tbody>
-    <tr><th> Bytes </th><td> 1.54 kB </td> <td> 1.54 kB </td></tr>
-    <tr><th> Shape </th><td> (192, 2) </td> <td> (192, 2) </td></tr>
-    <tr><th> Count </th><td> 2 Tasks </td><td> 1 Chunks </td></tr>
-    <tr><th> Type </th><td> float32 </td><td> numpy.ndarray </td></tr>
-  </tbody>
-</table>
-</td>
-<td>
-<svg width="75" height="170" style="stroke:rgb(0,0,0);stroke-width:1" >
+        85.287958,  86.230366,  87.172775,  88.115183,  89.057592,  90.      ])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lat_bnds</span></div><div class='xr-var-dims'>(lat, nbnd)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(192, 2), meta=np.ndarray&gt;</div><input id='attrs-8afda328-2f7b-4f90-8681-dbccbe7ac6de' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8afda328-2f7b-4f90-8681-dbccbe7ac6de' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-4218faf2-1e60-49c7-8b1f-43fc7630e63a' class='xr-var-data-in' type='checkbox'><label for='data-4218faf2-1e60-49c7-8b1f-43fc7630e63a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 1.50 kiB </td>
+                        <td> 1.50 kiB </td>
+                    </tr>
+
+                    <tr>
+                        <th> Shape </th>
+                        <td> (192, 2) </td>
+                        <td> (192, 2) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 2 Graph Layers </td>
+                        <td> 1 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> float32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="75" height="170" style="stroke:rgb(0,0,0);stroke-width:1" >
 
   <!-- Horizontal lines -->
   <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
@@ -1454,25 +1400,47 @@ Attributes: (12/48)
   <text x="12.804567" y="140.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" >2</text>
   <text x="45.609134" y="60.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,45.609134,60.000000)">192</text>
 </svg>
-</td>
-</tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 1.25 2.5 ... 356.2 357.5 358.8</div><input id='attrs-255a3e69-488f-46b9-b1b6-293b782d6b9d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-255a3e69-488f-46b9-b1b6-293b782d6b9d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-778768cc-4d57-414f-9c7b-02294663a4d9' class='xr-var-data-in' type='checkbox'><label for='data-778768cc-4d57-414f-9c7b-02294663a4d9' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>title :</span></dt><dd>Longitude</dd><dt><span>type :</span></dt><dd>double</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>valid_max :</span></dt><dd>360.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd></dl></div><div class='xr-var-data'><pre>array([  0.  ,   1.25,   2.5 , ..., 356.25, 357.5 , 358.75])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon_bnds</span></div><div class='xr-var-dims'>(lon, nbnd)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(288, 2), meta=np.ndarray&gt;</div><input id='attrs-fc1e0c8e-fcf0-41a6-b1d7-c2564bb634a0' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-fc1e0c8e-fcf0-41a6-b1d7-c2564bb634a0' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3eb5855f-0ee5-4158-9f7f-c8a193a4c724' class='xr-var-data-in' type='checkbox'><label for='data-3eb5855f-0ee5-4158-9f7f-c8a193a4c724' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><table>
-<tr>
-<td>
-<table>
-  <thead>
-    <tr><td> </td><th> Array </th><th> Chunk </th></tr>
-  </thead>
-  <tbody>
-    <tr><th> Bytes </th><td> 2.30 kB </td> <td> 2.30 kB </td></tr>
-    <tr><th> Shape </th><td> (288, 2) </td> <td> (288, 2) </td></tr>
-    <tr><th> Count </th><td> 2 Tasks </td><td> 1 Chunks </td></tr>
-    <tr><th> Type </th><td> float32 </td><td> numpy.ndarray </td></tr>
-  </tbody>
-</table>
-</td>
-<td>
-<svg width="75" height="170" style="stroke:rgb(0,0,0);stroke-width:1" >
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>0.0 1.25 2.5 ... 356.2 357.5 358.8</div><input id='attrs-5b592462-0681-4ec5-9fef-19d2a0cffd41' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-5b592462-0681-4ec5-9fef-19d2a0cffd41' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-8419d07d-1a31-4e3c-975a-f1001ed7e747' class='xr-var-data-in' type='checkbox'><label for='data-8419d07d-1a31-4e3c-975a-f1001ed7e747' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>bounds :</span></dt><dd>lon_bnds</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>title :</span></dt><dd>Longitude</dd><dt><span>type :</span></dt><dd>double</dd><dt><span>units :</span></dt><dd>degrees_east</dd><dt><span>valid_max :</span></dt><dd>360.0</dd><dt><span>valid_min :</span></dt><dd>0.0</dd></dl></div><div class='xr-var-data'><pre>array([  0.  ,   1.25,   2.5 , ..., 356.25, 357.5 , 358.75])</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>lon_bnds</span></div><div class='xr-var-dims'>(lon, nbnd)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(288, 2), meta=np.ndarray&gt;</div><input id='attrs-73798134-9c93-4c06-b729-a6161cbc9855' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-73798134-9c93-4c06-b729-a6161cbc9855' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-cbf2efac-8079-4221-8efe-59fb8a4f915a' class='xr-var-data-in' type='checkbox'><label for='data-cbf2efac-8079-4221-8efe-59fb8a4f915a' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 2.25 kiB </td>
+                        <td> 2.25 kiB </td>
+                    </tr>
+
+                    <tr>
+                        <th> Shape </th>
+                        <td> (288, 2) </td>
+                        <td> (288, 2) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 2 Graph Layers </td>
+                        <td> 1 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> float32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="75" height="170" style="stroke:rgb(0,0,0);stroke-width:1" >
 
   <!-- Horizontal lines -->
   <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
@@ -1489,30 +1457,54 @@ Attributes: (12/48)
   <text x="12.706308" y="140.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" >2</text>
   <text x="45.412617" y="60.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,45.412617,60.000000)">288</text>
 </svg>
-</td>
-</tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1850-01-15 12:00:00 ... 2014-12-...</div><input id='attrs-b6861c62-1de5-4925-94e6-6446dacd3604' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-b6861c62-1de5-4925-94e6-6446dacd3604' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c3c695c5-c61b-4576-b64a-846f69cc8c3e' class='xr-var-data-in' type='checkbox'><label for='data-c3c695c5-c61b-4576-b64a-846f69cc8c3e' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>title :</span></dt><dd>time</dd><dt><span>type :</span></dt><dd>double</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1850, 1, 15, 12, 0, 0, 0),
-       cftime.DatetimeNoLeap(1850, 2, 14, 0, 0, 0, 0),
-       cftime.DatetimeNoLeap(1850, 3, 15, 12, 0, 0, 0), ...,
-       cftime.DatetimeNoLeap(2014, 10, 15, 12, 0, 0, 0),
-       cftime.DatetimeNoLeap(2014, 11, 15, 0, 0, 0, 0),
-       cftime.DatetimeNoLeap(2014, 12, 15, 12, 0, 0, 0)], dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, nbnd)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1980, 2), meta=np.ndarray&gt;</div><input id='attrs-09a833cb-e73b-43a4-a7c0-4974f9ef1967' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-09a833cb-e73b-43a4-a7c0-4974f9ef1967' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-848db1ff-f47b-46a5-b5b5-a5a23eae7a66' class='xr-var-data-in' type='checkbox'><label for='data-848db1ff-f47b-46a5-b5b5-a5a23eae7a66' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
-<tr>
-<td>
-<table>
-  <thead>
-    <tr><td> </td><th> Array </th><th> Chunk </th></tr>
-  </thead>
-  <tbody>
-    <tr><th> Bytes </th><td> 31.68 kB </td> <td> 31.68 kB </td></tr>
-    <tr><th> Shape </th><td> (1980, 2) </td> <td> (1980, 2) </td></tr>
-    <tr><th> Count </th><td> 2 Tasks </td><td> 1 Chunks </td></tr>
-    <tr><th> Type </th><td> object </td><td> numpy.ndarray </td></tr>
-  </tbody>
-</table>
-</td>
-<td>
-<svg width="75" height="170" style="stroke:rgb(0,0,0);stroke-width:1" >
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>1850-01-15 12:00:00 ... 2014-12-...</div><input id='attrs-78f9c3d6-7a86-4a1c-9531-b74e8a73aa3d' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-78f9c3d6-7a86-4a1c-9531-b74e8a73aa3d' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-0146cfab-bcfe-4440-bd65-3918545c18d4' class='xr-var-data-in' type='checkbox'><label for='data-0146cfab-bcfe-4440-bd65-3918545c18d4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>T</dd><dt><span>bounds :</span></dt><dd>time_bnds</dd><dt><span>standard_name :</span></dt><dd>time</dd><dt><span>title :</span></dt><dd>time</dd><dt><span>type :</span></dt><dd>double</dd></dl></div><div class='xr-var-data'><pre>array([cftime.DatetimeNoLeap(1850, 1, 15, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(1850, 2, 14, 0, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(1850, 3, 15, 12, 0, 0, 0, has_year_zero=True),
+       ...,
+       cftime.DatetimeNoLeap(2014, 10, 15, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(2014, 11, 15, 0, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(2014, 12, 15, 12, 0, 0, 0, has_year_zero=True)],
+      dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span>time_bnds</span></div><div class='xr-var-dims'>(time, nbnd)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1980, 2), meta=np.ndarray&gt;</div><input id='attrs-a6016fcb-fab9-495c-a601-be360666f1de' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-a6016fcb-fab9-495c-a601-be360666f1de' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7efa772a-6da9-49d4-b507-b5084933cd58' class='xr-var-data-in' type='checkbox'><label for='data-7efa772a-6da9-49d4-b507-b5084933cd58' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 30.94 kiB </td>
+                        <td> 30.94 kiB </td>
+                    </tr>
+
+                    <tr>
+                        <th> Shape </th>
+                        <td> (1980, 2) </td>
+                        <td> (1980, 2) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 2 Graph Layers </td>
+                        <td> 1 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> object </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="75" height="170" style="stroke:rgb(0,0,0);stroke-width:1" >
 
   <!-- Horizontal lines -->
   <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
@@ -1529,25 +1521,47 @@ Attributes: (12/48)
   <text x="12.706308" y="140.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" >2</text>
   <text x="45.412617" y="60.000000" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,45.412617,60.000000)">1980</text>
 </svg>
-</td>
-</tr>
-</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>member_id</span></div><div class='xr-var-dims'>(member_id)</div><div class='xr-var-dtype'>&lt;U8</div><div class='xr-var-preview xr-preview'>&#x27;r1i1p1f1&#x27;</div><input id='attrs-731e03bf-9f25-4868-af06-3e30d046f127' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-731e03bf-9f25-4868-af06-3e30d046f127' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-7247e22f-dcf2-4170-b7f0-21e795f75fcb' class='xr-var-data-in' type='checkbox'><label for='data-7247e22f-dcf2-4170-b7f0-21e795f75fcb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;r1i1p1f1&#x27;], dtype=&#x27;&lt;U8&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-20e8fd29-23aa-4442-8fb6-9e21934000d2' class='xr-section-summary-in' type='checkbox'  checked><label for='section-20e8fd29-23aa-4442-8fb6-9e21934000d2' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(member_id, time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 600, 192, 288), meta=np.ndarray&gt;</div><input id='attrs-8d97df08-97e0-4870-a1ee-7983b5d7d19b' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-8d97df08-97e0-4870-a1ee-7983b5d7d19b' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ee952160-c377-41e3-a7de-466e631b09c4' class='xr-var-data-in' type='checkbox'><label for='data-ee952160-c377-41e3-a7de-466e631b09c4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>cell_measures :</span></dt><dd>area: areacella</dd><dt><span>cell_methods :</span></dt><dd>area: time: mean</dd><dt><span>comment :</span></dt><dd>near-surface (usually, 2 meter) air temperature</dd><dt><span>description :</span></dt><dd>near-surface (usually, 2 meter) air temperature</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>id :</span></dt><dd>tas</dd><dt><span>long_name :</span></dt><dd>Near-Surface Air Temperature</dd><dt><span>mipTable :</span></dt><dd>Amon</dd><dt><span>out_name :</span></dt><dd>tas</dd><dt><span>prov :</span></dt><dd>Amon ((isd.003))</dd><dt><span>realm :</span></dt><dd>atmos</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>time :</span></dt><dd>time</dd><dt><span>time_label :</span></dt><dd>time-mean</dd><dt><span>time_title :</span></dt><dd>Temporal mean</dd><dt><span>title :</span></dt><dd>Near-Surface Air Temperature</dd><dt><span>type :</span></dt><dd>real</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>variable_id :</span></dt><dd>tas</dd></dl></div><div class='xr-var-data'><table>
-<tr>
-<td>
-<table>
-  <thead>
-    <tr><td> </td><th> Array </th><th> Chunk </th></tr>
-  </thead>
-  <tbody>
-    <tr><th> Bytes </th><td> 437.94 MB </td> <td> 132.71 MB </td></tr>
-    <tr><th> Shape </th><td> (1, 1980, 192, 288) </td> <td> (1, 600, 192, 288) </td></tr>
-    <tr><th> Count </th><td> 9 Tasks </td><td> 4 Chunks </td></tr>
-    <tr><th> Type </th><td> float32 </td><td> numpy.ndarray </td></tr>
-  </tbody>
-</table>
-</td>
-<td>
-<svg width="351" height="159" style="stroke:rgb(0,0,0);stroke-width:1" >
+        </td>
+    </tr>
+</table></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>member_id</span></div><div class='xr-var-dims'>(member_id)</div><div class='xr-var-dtype'>object</div><div class='xr-var-preview xr-preview'>&#x27;r1i1p1f1&#x27;</div><input id='attrs-7f8ecc31-44dd-4a71-bbbd-64c5f542ab83' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-7f8ecc31-44dd-4a71-bbbd-64c5f542ab83' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-25b1a65a-9e17-4e1f-8181-7ddcbe982867' class='xr-var-data-in' type='checkbox'><label for='data-25b1a65a-9e17-4e1f-8181-7ddcbe982867' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([&#x27;r1i1p1f1&#x27;], dtype=object)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>dcpp_init_year</span></div><div class='xr-var-dims'>(dcpp_init_year)</div><div class='xr-var-dtype'>float64</div><div class='xr-var-preview xr-preview'>nan</div><input id='attrs-f03f2753-3b36-4da9-a50a-6b523aa55274' class='xr-var-attrs-in' type='checkbox' disabled><label for='attrs-f03f2753-3b36-4da9-a50a-6b523aa55274' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fdcee2c8-fe58-4562-906e-3ea3cbd5aa87' class='xr-var-data-in' type='checkbox'><label for='data-fdcee2c8-fe58-4562-906e-3ea3cbd5aa87' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'></dl></div><div class='xr-var-data'><pre>array([nan])</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-200e9678-aa44-4810-9c2d-ef96f2815ea0' class='xr-section-summary-in' type='checkbox'  checked><label for='section-200e9678-aa44-4810-9c2d-ef96f2815ea0' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>tas</span></div><div class='xr-var-dims'>(member_id, dcpp_init_year, time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(1, 1, 600, 192, 288), meta=np.ndarray&gt;</div><input id='attrs-7e89a184-16ab-4e69-8d6f-ea22d8b1c272' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-7e89a184-16ab-4e69-8d6f-ea22d8b1c272' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-5df6d087-56e4-4669-ab53-14d38d745fa8' class='xr-var-data-in' type='checkbox'><label for='data-5df6d087-56e4-4669-ab53-14d38d745fa8' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>cell_measures :</span></dt><dd>area: areacella</dd><dt><span>cell_methods :</span></dt><dd>area: time: mean</dd><dt><span>comment :</span></dt><dd>near-surface (usually, 2 meter) air temperature</dd><dt><span>description :</span></dt><dd>near-surface (usually, 2 meter) air temperature</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>id :</span></dt><dd>tas</dd><dt><span>long_name :</span></dt><dd>Near-Surface Air Temperature</dd><dt><span>mipTable :</span></dt><dd>Amon</dd><dt><span>out_name :</span></dt><dd>tas</dd><dt><span>prov :</span></dt><dd>Amon ((isd.003))</dd><dt><span>realm :</span></dt><dd>atmos</dd><dt><span>standard_name :</span></dt><dd>air_temperature</dd><dt><span>time :</span></dt><dd>time</dd><dt><span>time_label :</span></dt><dd>time-mean</dd><dt><span>time_title :</span></dt><dd>Temporal mean</dd><dt><span>title :</span></dt><dd>Near-Surface Air Temperature</dd><dt><span>type :</span></dt><dd>real</dd><dt><span>units :</span></dt><dd>K</dd><dt><span>variable_id :</span></dt><dd>tas</dd></dl></div><div class='xr-var-data'><table>
+    <tr>
+        <td>
+            <table>
+                <thead>
+                    <tr>
+                        <td> </td>
+                        <th> Array </th>
+                        <th> Chunk </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <th> Bytes </th>
+                        <td> 417.66 MiB </td>
+                        <td> 126.56 MiB </td>
+                    </tr>
+
+                    <tr>
+                        <th> Shape </th>
+                        <td> (1, 1, 1980, 192, 288) </td>
+                        <td> (1, 1, 600, 192, 288) </td>
+                    </tr>
+                    <tr>
+                        <th> Count </th>
+                        <td> 3 Graph Layers </td>
+                        <td> 4 Chunks </td>
+                    </tr>
+                    <tr>
+                    <th> Type </th>
+                    <td> float32 </td>
+                    <td> numpy.ndarray </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td>
+        <svg width="351" height="159" style="stroke:rgb(0,0,0);stroke-width:1" >
 
   <!-- Horizontal lines -->
   <line x1="0" y1="0" x2="25" y2="0" style="stroke-width:2" />
@@ -1609,10 +1623,10 @@ Attributes: (12/48)
   <text x="226.145096" y="89.801051" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(-90,226.145096,89.801051)">192</text>
   <text x="120.294118" y="93.719750" font-size="1.0rem" font-weight="100" text-anchor="middle" transform="rotate(45,120.294118,93.719750)">1980</text>
 </svg>
-</td>
-</tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-69555b27-671b-4ef1-a26d-3bee0d4741cf' class='xr-section-summary-in' type='checkbox'  ><label for='section-69555b27-671b-4ef1-a26d-3bee0d4741cf' class='xr-section-summary' >Attributes: <span>(48)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.7 CMIP-6.2</dd><dt><span>activity_id :</span></dt><dd>CMIP</dd><dt><span>branch_method :</span></dt><dd>standard</dd><dt><span>branch_time_in_child :</span></dt><dd>674885.0</dd><dt><span>branch_time_in_parent :</span></dt><dd>219000.0</dd><dt><span>case_id :</span></dt><dd>15</dd><dt><span>cesm_casename :</span></dt><dd>b.e21.BHIST.f09_g17.CMIP6-historical.001</dd><dt><span>contact :</span></dt><dd>cesm_cmip6@ucar.edu</dd><dt><span>creation_date :</span></dt><dd>2019-01-16T23:34:05Z</dd><dt><span>data_specs_version :</span></dt><dd>01.00.29</dd><dt><span>experiment :</span></dt><dd>all-forcing simulation of the recent past</dd><dt><span>experiment_id :</span></dt><dd>historical</dd><dt><span>external_variables :</span></dt><dd>areacella</dd><dt><span>forcing_index :</span></dt><dd>1</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>further_info_url :</span></dt><dd>https://furtherinfo.es-doc.org/CMIP6.NCAR.CESM2.historical.none.r1i1p1f1</dd><dt><span>grid :</span></dt><dd>native 0.9x1.25 finite volume grid (192x288 latxlon)</dd><dt><span>grid_label :</span></dt><dd>gn</dd><dt><span>initialization_index :</span></dt><dd>1</dd><dt><span>institution :</span></dt><dd>National Center for Atmospheric Research, Climate and Global Dynamics Laboratory, 1850 Table Mesa Drive, Boulder, CO 80305, USA</dd><dt><span>institution_id :</span></dt><dd>NCAR</dd><dt><span>license :</span></dt><dd>CMIP6 model data produced by &lt;The National Center for Atmospheric Research&gt; is licensed under a Creative Commons Attribution-[]ShareAlike 4.0 International License (https://creativecommons.org/licenses/). Consult https://pcmdi.llnl.gov/CMIP6/TermsOfUse for terms of use governing CMIP6 output, including citation requirements and proper acknowledgment. Further information about this data, including some limitations, can be found via the further_info_url (recorded as a global attribute in this file)[]. The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law.</dd><dt><span>mip_era :</span></dt><dd>CMIP6</dd><dt><span>model_doi_url :</span></dt><dd>https://doi.org/10.5065/D67H1H0V</dd><dt><span>nominal_resolution :</span></dt><dd>100 km</dd><dt><span>parent_activity_id :</span></dt><dd>CMIP</dd><dt><span>parent_experiment_id :</span></dt><dd>piControl</dd><dt><span>parent_mip_era :</span></dt><dd>CMIP6</dd><dt><span>parent_source_id :</span></dt><dd>CESM2</dd><dt><span>parent_time_units :</span></dt><dd>days since 0001-01-01 00:00:00</dd><dt><span>parent_variant_label :</span></dt><dd>r1i1p1f1</dd><dt><span>physics_index :</span></dt><dd>1</dd><dt><span>product :</span></dt><dd>model-output</dd><dt><span>realization_index :</span></dt><dd>1</dd><dt><span>realm :</span></dt><dd>atmos</dd><dt><span>source :</span></dt><dd>CESM2 (2017): atmosphere: CAM6 (0.9x1.25 finite volume grid; 288 x 192 longitude/latitude; 32 levels; top level 2.25 mb); ocean: POP2 (320x384 longitude/latitude; 60 levels; top grid cell 0-10 m); sea_ice: CICE5.1 (same grid as ocean); land: CLM5 0.9x1.25 finite volume grid; 288 x 192 longitude/latitude; 32 levels; top level 2.25 mb); aerosol: MAM4 (0.9x1.25 finite volume grid; 288 x 192 longitude/latitude; 32 levels; top level 2.25 mb); atmoschem: MAM4 (0.9x1.25 finite volume grid; 288 x 192 longitude/latitude; 32 levels; top level 2.25 mb); landIce: CISM2.1; ocnBgchem: MARBL (320x384 longitude/latitude; 60 levels; top grid cell 0-10 m)</dd><dt><span>source_id :</span></dt><dd>CESM2</dd><dt><span>source_type :</span></dt><dd>AOGCM BGC</dd><dt><span>sub_experiment :</span></dt><dd>none</dd><dt><span>sub_experiment_id :</span></dt><dd>none</dd><dt><span>table_id :</span></dt><dd>Amon</dd><dt><span>tracking_id :</span></dt><dd>hdl:21.14100/d9a7225a-49c3-4470-b7ab-a8180926f839</dd><dt><span>variable_id :</span></dt><dd>tas</dd><dt><span>variant_info :</span></dt><dd>CMIP6 20th century experiments (1850-2014) with CAM6, interactive land (CLM5), coupled ocean (POP2) with biogeochemistry (MARBL), interactive sea ice (CICE5.1), and non-evolving land ice (CISM2.1)
-</dd><dt><span>variant_label :</span></dt><dd>r1i1p1f1</dd><dt><span>status :</span></dt><dd>2019-10-25;created;by nhn2@columbia.edu</dd><dt><span>intake_esm_varname :</span></dt><dd>[&#x27;tas&#x27;]</dd><dt><span>intake_esm_dataset_key :</span></dt><dd>CMIP.NCAR.CESM2.historical.Amon.gn</dd></dl></div></li></ul></div></div></div></div>
+        </td>
+    </tr>
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-9e0727ce-c97f-4f8f-a00a-d2ddb75c2558' class='xr-section-summary-in' type='checkbox'  ><label for='section-9e0727ce-c97f-4f8f-a00a-d2ddb75c2558' class='xr-section-summary' >Attributes: <span>(61)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>CF-1.7 CMIP-6.2</dd><dt><span>activity_id :</span></dt><dd>CMIP</dd><dt><span>branch_method :</span></dt><dd>standard</dd><dt><span>branch_time_in_child :</span></dt><dd>674885.0</dd><dt><span>branch_time_in_parent :</span></dt><dd>219000.0</dd><dt><span>case_id :</span></dt><dd>15</dd><dt><span>cesm_casename :</span></dt><dd>b.e21.BHIST.f09_g17.CMIP6-historical.001</dd><dt><span>contact :</span></dt><dd>cesm_cmip6@ucar.edu</dd><dt><span>creation_date :</span></dt><dd>2019-01-16T23:34:05Z</dd><dt><span>data_specs_version :</span></dt><dd>01.00.29</dd><dt><span>experiment :</span></dt><dd>all-forcing simulation of the recent past</dd><dt><span>experiment_id :</span></dt><dd>historical</dd><dt><span>external_variables :</span></dt><dd>areacella</dd><dt><span>forcing_index :</span></dt><dd>1</dd><dt><span>frequency :</span></dt><dd>mon</dd><dt><span>further_info_url :</span></dt><dd>https://furtherinfo.es-doc.org/CMIP6.NCAR.CESM2.historical.none.r1i1p1f1</dd><dt><span>grid :</span></dt><dd>native 0.9x1.25 finite volume grid (192x288 latxlon)</dd><dt><span>grid_label :</span></dt><dd>gn</dd><dt><span>initialization_index :</span></dt><dd>1</dd><dt><span>institution :</span></dt><dd>National Center for Atmospheric Research, Climate and Global Dynamics Laboratory, 1850 Table Mesa Drive, Boulder, CO 80305, USA</dd><dt><span>institution_id :</span></dt><dd>NCAR</dd><dt><span>license :</span></dt><dd>CMIP6 model data produced by &lt;The National Center for Atmospheric Research&gt; is licensed under a Creative Commons Attribution-[]ShareAlike 4.0 International License (https://creativecommons.org/licenses/). Consult https://pcmdi.llnl.gov/CMIP6/TermsOfUse for terms of use governing CMIP6 output, including citation requirements and proper acknowledgment. Further information about this data, including some limitations, can be found via the further_info_url (recorded as a global attribute in this file)[]. The data producers and data providers make no warranty, either express or implied, including, but not limited to, warranties of merchantability and fitness for a particular purpose. All liabilities arising from the supply of the information (including any liability arising in negligence) are excluded to the fullest extent permitted by law.</dd><dt><span>mip_era :</span></dt><dd>CMIP6</dd><dt><span>model_doi_url :</span></dt><dd>https://doi.org/10.5065/D67H1H0V</dd><dt><span>nominal_resolution :</span></dt><dd>100 km</dd><dt><span>parent_activity_id :</span></dt><dd>CMIP</dd><dt><span>parent_experiment_id :</span></dt><dd>piControl</dd><dt><span>parent_mip_era :</span></dt><dd>CMIP6</dd><dt><span>parent_source_id :</span></dt><dd>CESM2</dd><dt><span>parent_time_units :</span></dt><dd>days since 0001-01-01 00:00:00</dd><dt><span>parent_variant_label :</span></dt><dd>r1i1p1f1</dd><dt><span>physics_index :</span></dt><dd>1</dd><dt><span>product :</span></dt><dd>model-output</dd><dt><span>realization_index :</span></dt><dd>1</dd><dt><span>realm :</span></dt><dd>atmos</dd><dt><span>source :</span></dt><dd>CESM2 (2017): atmosphere: CAM6 (0.9x1.25 finite volume grid; 288 x 192 longitude/latitude; 32 levels; top level 2.25 mb); ocean: POP2 (320x384 longitude/latitude; 60 levels; top grid cell 0-10 m); sea_ice: CICE5.1 (same grid as ocean); land: CLM5 0.9x1.25 finite volume grid; 288 x 192 longitude/latitude; 32 levels; top level 2.25 mb); aerosol: MAM4 (0.9x1.25 finite volume grid; 288 x 192 longitude/latitude; 32 levels; top level 2.25 mb); atmoschem: MAM4 (0.9x1.25 finite volume grid; 288 x 192 longitude/latitude; 32 levels; top level 2.25 mb); landIce: CISM2.1; ocnBgchem: MARBL (320x384 longitude/latitude; 60 levels; top grid cell 0-10 m)</dd><dt><span>source_id :</span></dt><dd>CESM2</dd><dt><span>source_type :</span></dt><dd>AOGCM BGC</dd><dt><span>sub_experiment :</span></dt><dd>none</dd><dt><span>sub_experiment_id :</span></dt><dd>none</dd><dt><span>table_id :</span></dt><dd>Amon</dd><dt><span>tracking_id :</span></dt><dd>hdl:21.14100/d9a7225a-49c3-4470-b7ab-a8180926f839</dd><dt><span>variable_id :</span></dt><dd>tas</dd><dt><span>variant_info :</span></dt><dd>CMIP6 20th century experiments (1850-2014) with CAM6, interactive land (CLM5), coupled ocean (POP2) with biogeochemistry (MARBL), interactive sea ice (CICE5.1), and non-evolving land ice (CISM2.1)
+</dd><dt><span>variant_label :</span></dt><dd>r1i1p1f1</dd><dt><span>status :</span></dt><dd>2019-10-25;created;by nhn2@columbia.edu</dd><dt><span>netcdf_tracking_ids :</span></dt><dd>hdl:21.14100/d9a7225a-49c3-4470-b7ab-a8180926f839</dd><dt><span>version_id :</span></dt><dd>v20190308</dd><dt><span>intake_esm_vars :</span></dt><dd>[&#x27;tas&#x27;]</dd><dt><span>intake_esm_attrs:activity_id :</span></dt><dd>CMIP</dd><dt><span>intake_esm_attrs:institution_id :</span></dt><dd>NCAR</dd><dt><span>intake_esm_attrs:source_id :</span></dt><dd>CESM2</dd><dt><span>intake_esm_attrs:experiment_id :</span></dt><dd>historical</dd><dt><span>intake_esm_attrs:member_id :</span></dt><dd>r1i1p1f1</dd><dt><span>intake_esm_attrs:table_id :</span></dt><dd>Amon</dd><dt><span>intake_esm_attrs:variable_id :</span></dt><dd>tas</dd><dt><span>intake_esm_attrs:grid_label :</span></dt><dd>gn</dd><dt><span>intake_esm_attrs:zstore :</span></dt><dd>gs://cmip6/CMIP6/CMIP/NCAR/CESM2/historical/r1i1p1f1/Amon/tas/gn/v20190308/</dd><dt><span>intake_esm_attrs:version :</span></dt><dd>20190308</dd><dt><span>intake_esm_attrs:_data_format_ :</span></dt><dd>zarr</dd><dt><span>intake_esm_dataset_key :</span></dt><dd>CMIP.NCAR.CESM2.historical.Amon.gn</dd></dl></div></li></ul></div></div></div></div>
 </div>
 <section id="get-metadata-corresponding-to-near-surface-air-temperature-tas">
 <h3>Get metadata corresponding to near-surface air temperature (tas)<a class="headerlink" href="#get-metadata-corresponding-to-near-surface-air-temperature-tas" title="Permalink to this headline">#</a></h3>
@@ -1623,21 +1637,29 @@ Attributes: (12/48)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.DataArray &#39;tas&#39; (member_id: 1, time: 1980, lat: 192, lon: 288)&gt;
-dask.array&lt;broadcast_to, shape=(1, 1980, 192, 288), dtype=float32, chunksize=(1, 600, 192, 288), chunktype=numpy.ndarray&gt;
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.DataArray &#39;tas&#39; (member_id: 1, dcpp_init_year: 1, time: 1980, lat: 192,
+                         lon: 288)&gt;
+dask.array&lt;broadcast_to, shape=(1, 1, 1980, 192, 288), dtype=float32, chunksize=(1, 1, 600, 192, 288), chunktype=numpy.ndarray&gt;
 Coordinates:
-  * lat        (lat) float64 -90.0 -89.06 -88.12 -87.17 ... 88.12 89.06 90.0
-  * lon        (lon) float64 0.0 1.25 2.5 3.75 5.0 ... 355.0 356.2 357.5 358.8
-  * time       (time) object 1850-01-15 12:00:00 ... 2014-12-15 12:00:00
-  * member_id  (member_id) &lt;U8 &#39;r1i1p1f1&#39;
-Attributes: (12/19)
+  * lat             (lat) float64 -90.0 -89.06 -88.12 ... 88.12 89.06 90.0
+  * lon             (lon) float64 0.0 1.25 2.5 3.75 ... 355.0 356.2 357.5 358.8
+  * time            (time) object 1850-01-15 12:00:00 ... 2014-12-15 12:00:00
+  * member_id       (member_id) object &#39;r1i1p1f1&#39;
+  * dcpp_init_year  (dcpp_init_year) float64 nan
+Attributes:
     cell_measures:  area: areacella
     cell_methods:   area: time: mean
     comment:        near-surface (usually, 2 meter) air temperature
     description:    near-surface (usually, 2 meter) air temperature
     frequency:      mon
     id:             tas
-    ...             ...
+    long_name:      Near-Surface Air Temperature
+    mipTable:       Amon
+    out_name:       tas
+    prov:           Amon ((isd.003))
+    realm:          atmos
+    standard_name:  air_temperature
+    time:           time
     time_label:     time-mean
     time_title:     Temporal mean
     title:          Near-Surface Air Temperature
@@ -1655,12 +1677,14 @@ Attributes: (12/19)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([cftime.DatetimeNoLeap(1850, 1, 15, 12, 0, 0, 0),
-       cftime.DatetimeNoLeap(1850, 2, 14, 0, 0, 0, 0),
-       cftime.DatetimeNoLeap(1850, 3, 15, 12, 0, 0, 0), ...,
-       cftime.DatetimeNoLeap(2014, 10, 15, 12, 0, 0, 0),
-       cftime.DatetimeNoLeap(2014, 11, 15, 0, 0, 0, 0),
-       cftime.DatetimeNoLeap(2014, 12, 15, 12, 0, 0, 0)], dtype=object)
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([cftime.DatetimeNoLeap(1850, 1, 15, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(1850, 2, 14, 0, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(1850, 3, 15, 12, 0, 0, 0, has_year_zero=True),
+       ...,
+       cftime.DatetimeNoLeap(2014, 10, 15, 12, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(2014, 11, 15, 0, 0, 0, 0, has_year_zero=True),
+       cftime.DatetimeNoLeap(2014, 12, 15, 12, 0, 0, 0, has_year_zero=True)],
+      dtype=object)
 </pre></div>
 </div>
 </div>
@@ -1678,7 +1702,7 @@ Attributes: (12/19)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f6dab2fcd30&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7fc9dfe23430&gt;
 </pre></div>
 </div>
 <img alt="../../_images/CMIP6_example_16_1.png" src="../../_images/CMIP6_example_16_1.png" />
@@ -1694,7 +1718,7 @@ Attributes: (12/19)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f6dabc460a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7fc9dfc543a0&gt;
 </pre></div>
 </div>
 <img alt="../../_images/CMIP6_example_18_1.png" src="../../_images/CMIP6_example_18_1.png" />
@@ -1722,7 +1746,7 @@ Attributes: (12/19)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.QuadMesh at 0x7f6dab555fd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;cartopy.mpl.geocollection.GeoQuadMesh at 0x7fc9dfb55e70&gt;
 </pre></div>
 </div>
 <img alt="../../_images/CMIP6_example_20_1.png" src="../../_images/CMIP6_example_20_1.png" />
@@ -1812,11 +1836,7 @@ Attributes: (12/19)
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/conda/lib/python3.8/site-packages/xarray/plot/facetgrid.py:390: UserWarning: Tight layout not applied. The left and right margins cannot be made large enough to accommodate all axes decorations. 
-  self.fig.tight_layout()
-</pre></div>
-</div>
-<img alt="../../_images/CMIP6_example_26_1.png" src="../../_images/CMIP6_example_26_1.png" />
+<img alt="../../_images/CMIP6_example_26_0.png" src="../../_images/CMIP6_example_26_0.png" />
 </div>
 </div>
 </section>
