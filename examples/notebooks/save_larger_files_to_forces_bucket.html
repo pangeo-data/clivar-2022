@@ -52,8 +52,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.1/dist/embed-amd.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Save small local files to forces" href="save_to_forces_bucket.html" />
@@ -641,13 +639,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">RuntimeError</span><span class="g g-Whitespace">                              </span>Traceback (most recent call last)
-<span class="ne">RuntimeError</span>: module compiled against API version 0x10 but this version of numpy is 0xe
-</pre></div>
-</div>
-</div>
 </div>
 <section id="connect-to-bucket-anonymous-login-for-public-data-only">
 <h2>Connect to bucket (anonymous login for public data only)<a class="headerlink" href="#connect-to-bucket-anonymous-login-for-public-data-only" title="Permalink to this headline">#</a></h2>
@@ -685,7 +676,16 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;ESGF/CMIP6/GeoMIP/MPI-M/MPI-ESM1-2-LR/G6sulfur/r1i1p1f1/day/tasmin/gn/v20190710/tasmin_day_MPI-ESM1-2-LR_G6sulfur_r1i1p1f1_gn_20150101-20341231.nc&#39;,
+ &#39;ESGF/CMIP6/GeoMIP/MPI-M/MPI-ESM1-2-LR/G6sulfur/r1i1p1f1/day/tasmin/gn/v20190710/tasmin_day_MPI-ESM1-2-LR_G6sulfur_r1i1p1f1_gn_20350101-20541231.nc&#39;,
+ &#39;ESGF/CMIP6/GeoMIP/MPI-M/MPI-ESM1-2-LR/G6sulfur/r1i1p1f1/day/tasmin/gn/v20190710/tasmin_day_MPI-ESM1-2-LR_G6sulfur_r1i1p1f1_gn_20550101-20741231.nc&#39;,
+ &#39;ESGF/CMIP6/GeoMIP/MPI-M/MPI-ESM1-2-LR/G6sulfur/r1i1p1f1/day/tasmin/gn/v20190710/tasmin_day_MPI-ESM1-2-LR_G6sulfur_r1i1p1f1_gn_20750101-20941231.nc&#39;,
+ &#39;ESGF/CMIP6/GeoMIP/MPI-M/MPI-ESM1-2-LR/G6sulfur/r1i1p1f1/day/tasmin/gn/v20190710/tasmin_day_MPI-ESM1-2-LR_G6sulfur_r1i1p1f1_gn_20950101-20991231.nc&#39;,
+ &#39;ESGF/CMIP6/GeoMIP/MPI-M/MPI-ESM1-2-LR/G6sulfur/r2i1p1f1/day/tasmin/gn/v20190710/tasmin_day_MPI-ESM1-2-LR_G6sulfur_r2i1p1f1_gn_20150101-20341231.nc&#39;,
+ &#39;ESGF/CMIP6/GeoMIP/MPI-M/MPI-ESM1-2-LR/G6sulfur/r2i1p1f1/day/tasmin/gn/v20190710/tasmin_day_MPI-ESM1-2-LR_G6sulfur_r2i1p1f1_gn_20350101-20541231.nc&#39;,
+ &#39;ESGF/CMIP6/GeoMIP/MPI-M/MPI-ESM1-2-LR/G6sulfur/r2i1p1f1/day/tasmin/gn/v20190710/tasmin_day_MPI-ESM1-2-LR_G6sulfur_r2i1p1f1_gn_20550101-20741231.nc&#39;,
+ &#39;ESGF/CMIP6/GeoMIP/MPI-M/MPI-ESM1-2-LR/G6sulfur/r2i1p1f1/day/tasmin/gn/v20190710/tasmin_day_MPI-ESM1-2-LR_G6sulfur_r2i1p1f1_gn_20750101-20941231.nc&#39;,
+ &#39;ESGF/CMIP6/GeoMIP/MPI-M/MPI-ESM1-2-LR/G6sulfur/r2i1p1f1/day/tasmin/gn/v20190710/tasmin_day_MPI-ESM1-2-LR_G6sulfur_r2i1p1f1_gn_20950101-21001231.nc&#39;]
 </pre></div>
 </div>
 </div>
@@ -697,25 +697,6 @@ title="Print to PDF"
 
 <span class="c1"># This works</span>
 <span class="n">dset</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">fileset</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;by_coords&#39;</span><span class="p">,</span> <span class="n">use_cftime</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span> <span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">5</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">fileset</span> <span class="o">=</span> <span class="p">[</span><span class="n">fs</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span> <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">remote_files</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="c1"># This works</span>
-<span class="ne">----&gt; </span><span class="mi">5</span> <span class="n">dset</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_mfdataset</span><span class="p">(</span><span class="n">fileset</span><span class="p">,</span> <span class="n">combine</span><span class="o">=</span><span class="s1">&#39;by_coords&#39;</span><span class="p">,</span> <span class="n">use_cftime</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="nn">File ~/micromamba-root/envs/clivar/lib/python3.10/site-packages/xarray/backends/api.py:953,</span> in <span class="ni">open_mfdataset</span><span class="nt">(paths, chunks, concat_dim, compat, preprocess, engine, data_vars, coords, combine, parallel, join, attrs_file, combine_attrs, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">950</span>     <span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">fspath</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">)</span> <span class="k">else</span> <span class="n">p</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">paths</span><span class="p">]</span>
-<span class="g g-Whitespace">    </span><span class="mi">952</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">paths</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">953</span>     <span class="k">raise</span> <span class="ne">OSError</span><span class="p">(</span><span class="s2">&quot;no files to open&quot;</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">955</span> <span class="k">if</span> <span class="n">combine</span> <span class="o">==</span> <span class="s2">&quot;nested&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">956</span>     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">concat_dim</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">DataArray</span><span class="p">))</span> <span class="ow">or</span> <span class="n">concat_dim</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-
-<span class="ne">OSError</span>: no files to open
 </pre></div>
 </div>
 </div>
