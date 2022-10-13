@@ -621,9 +621,9 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_3381/996340012.py:1: SerializationWarning: saving variable Tair with floating point data as an integer dtype without any _FillValue to use for NaNs
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_4103/1018954315.py:1: SerializationWarning: saving variable Tair with floating point data as an integer dtype without any _FillValue to use for NaNs
   ds.load().to_netcdf(&#39;1air_temperature.nc&#39;)
-/tmp/ipykernel_3381/996340012.py:2: SerializationWarning: saving variable Tair with floating point data as an integer dtype without any _FillValue to use for NaNs
+/tmp/ipykernel_4103/1018954315.py:2: SerializationWarning: saving variable Tair with floating point data as an integer dtype without any _FillValue to use for NaNs
   ds.load().to_netcdf(&#39;2air_temperature.nc&#39;)
 </pre></div>
 </div>
@@ -633,13 +633,13 @@ title="Print to PDF"
 <section id="save-your-results-to-remote-object-storage">
 <h2>Save your results to Remote object storage<a class="headerlink" href="#save-your-results-to-remote-object-storage" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
-<li><p>Create your credentials by follwoing <span class="xref myst">this link</span></p></li>
-<li><p>Place your credentials in <code class="docutils literal notranslate"><span class="pre">$HOME/.aws/credentials</span></code></p></li>
-<li><p>check examples/EOSC_to_bucket.md to get the secret access key (replace XXX by the right key)</p></li>
+<li><p>If not done, create your credentials by follwoing <span class="xref myst">this link</span></p></li>
+<li><p>Verify your credentials in <code class="docutils literal notranslate"><span class="pre">$HOME/.aws/credentials</span></code>
+It should look like</p></li>
 </ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">default</span><span class="p">]</span>
-<span class="n">aws_access_key_id</span><span class="o">=</span><span class="n">ba03ac2643004e3cb317b51c771ee6b9</span>
-<span class="n">aws_secret_access_key</span><span class="o">=</span><span class="n">XXXXXXXXXXXX</span>
+<span class="n">aws_access_key_id</span><span class="o">=</span><span class="n">xxxxx</span>
+<span class="n">aws_secret_access_key</span><span class="o">=</span><span class="n">yyyy</span>
 <span class="n">aws_endpoint_url</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="nb">object</span><span class="o">-</span><span class="n">store</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">muni</span><span class="o">.</span><span class="n">cz</span>
 </pre></div>
 </div>
@@ -731,12 +731,7 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">remote_path</span><span class="o">+</span><span class="s1">&#39;/1air_temperature.nc&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;tmp/tinaok/1air_temperature.nc&#39;]
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span><span class="o">.</span><span class="n">rm</span><span class="p">(</span><span class="n">remote_path</span><span class="o">+</span><span class="s1">&#39;/1air_temperature.nc&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
