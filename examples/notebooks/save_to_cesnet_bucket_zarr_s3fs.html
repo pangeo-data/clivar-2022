@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Search and Load CMIP6 Data via ESGF / OPeNDAP" href="search_and_load_with_esgf_opendap.html" />
-    <link rel="prev" title="Save files to EOSC (CESNET)" href="save_to_cesnet_bucket_netcdf.html" />
+    <link rel="prev" title="Save files to EOSC (CESNET)" href="save_to_cesnet_bucket_zarr-without_find.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -237,6 +237,16 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="save_to_cesnet_bucket_netcdf.html">
+   Save files to EOSC (CESNET)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="save_to_cesnet_bucket_zarr.html">
+   Save files to EOSC (CESNET)
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="save_to_cesnet_bucket_zarr-without_find.html">
    Save files to EOSC (CESNET)
   </a>
  </li>
@@ -522,20 +532,17 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-the-bucket-and-place-where-you-ll-copy-your-data-to">
-     Set the bucket and place where you’ll copy your data to
+    <a class="reference internal nav-link" href="#define-your-s3-storage-parameters">
+     Define your s3 storage parameters
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#give-a-name-to-your-zarr-file">
-     Give a name to your zarr file
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#define-your-s3-storage-and-define-your-zarr-store">
-     Define your s3 storage and define your zarr store
-    </a>
-   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-your-zarr-store-with-s3map">
+   set your zarr store (with S3Map)
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#write-your-file-down-to-zarr">
      Write your file down to zarr
@@ -588,20 +595,17 @@ title="Print to PDF"
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#set-the-bucket-and-place-where-you-ll-copy-your-data-to">
-     Set the bucket and place where you’ll copy your data to
+    <a class="reference internal nav-link" href="#define-your-s3-storage-parameters">
+     Define your s3 storage parameters
     </a>
    </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#give-a-name-to-your-zarr-file">
-     Give a name to your zarr file
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#define-your-s3-storage-and-define-your-zarr-store">
-     Define your s3 storage and define your zarr store
-    </a>
-   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#set-your-zarr-store-with-s3map">
+   set your zarr store (with S3Map)
+  </a>
+  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#write-your-file-down-to-zarr">
      Write your file down to zarr
@@ -641,10 +645,9 @@ title="Print to PDF"
 </ul>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">pathlib</span>
-<span class="kn">import</span> <span class="nn">s3fs</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">s3fs</span>
 <span class="kn">import</span> <span class="nn">xarray</span> <span class="k">as</span> <span class="nn">xr</span>
+<span class="kn">import</span> <span class="nn">zarr</span>
 </pre></div>
 </div>
 </div>
@@ -672,32 +675,22 @@ It should look like</p></li>
 <span class="n">aws_endpoint_url</span><span class="o">=</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="nb">object</span><span class="o">-</span><span class="n">store</span><span class="o">.</span><span class="n">cloud</span><span class="o">.</span><span class="n">muni</span><span class="o">.</span><span class="n">cz</span>
 </pre></div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-      <span class="n">client_kwargs</span><span class="o">=</span><span class="p">{</span>
-         <span class="s1">&#39;endpoint_url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://object-store.cloud.muni.cz&#39;</span>
-      <span class="p">})</span>
-</pre></div>
-</div>
-</div>
-</div>
 <div class="alert alert-danger alert-info">
     <b>It is important to save your results in 'your' bucket.  [The credential created here ](../EOSC_to_bucket.md) is a common space for pangeo-eosc cloud users.  You need to not to 'over write' data on other users</b>
 </div>
+<section id="define-your-s3-storage-parameters">
+<h3>Define your s3 storage parameters<a class="headerlink" href="#define-your-s3-storage-parameters" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">your_name</span><span class="o">=</span><span class="s1">&#39;tinaok&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="set-the-bucket-and-place-where-you-ll-copy-your-data-to">
-<h3>Set the bucket and place where you’ll copy your data to<a class="headerlink" href="#set-the-bucket-and-place-where-you-ll-copy-your-data-to" title="Permalink to this headline">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">s3_prefix</span> <span class="o">=</span>  <span class="s2">&quot;s3://tmp/&quot;</span><span class="o">+</span><span class="n">your_name</span>
+<span class="n">path</span><span class="o">=</span><span class="s1">&#39;tmp/&#39;</span><span class="o">+</span><span class="n">your_name</span>
+<span class="n">s3_prefix</span> <span class="o">=</span>  <span class="s2">&quot;s3://&quot;</span><span class="o">+</span><span class="n">path</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">s3_prefix</span><span class="p">)</span>
+<span class="n">access_key</span> <span class="o">=</span> <span class="o">!</span>aws configure get aws_access_key_id
+<span class="n">access_key</span> <span class="o">=</span> <span class="n">access_key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">secret_key</span> <span class="o">=</span> <span class="o">!</span>aws configure get aws_secret_access_key
+<span class="n">secret_key</span> <span class="o">=</span> <span class="n">secret_key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">client_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;endpoint_url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://object-store.cloud.muni.cz&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -708,40 +701,24 @@ It should look like</p></li>
 </div>
 </div>
 </section>
-<section id="give-a-name-to-your-zarr-file">
-<h3>Give a name to your zarr file<a class="headerlink" href="#give-a-name-to-your-zarr-file" title="Permalink to this headline">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zarr_file_name</span><span class="o">=</span> <span class="s1">&#39;zarr-demo&#39;</span>
-</pre></div>
-</div>
-</div>
-</div>
 </section>
-<section id="define-your-s3-storage-and-define-your-zarr-store">
-<h3>Define your s3 storage and define your zarr store<a class="headerlink" href="#define-your-s3-storage-and-define-your-zarr-store" title="Permalink to this headline">#</a></h3>
+<section id="set-your-zarr-store-with-s3map">
+<h2>set your zarr store (with S3Map)<a class="headerlink" href="#set-your-zarr-store-with-s3map" title="Permalink to this headline">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">access_key</span> <span class="o">=</span> <span class="o">!</span>aws configure get aws_access_key_id
-<span class="n">access_key</span> <span class="o">=</span> <span class="n">access_key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">secret_key</span> <span class="o">=</span> <span class="o">!</span>aws configure get aws_secret_access_key
-<span class="n">secret_key</span> <span class="o">=</span> <span class="n">secret_key</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">client_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;endpoint_url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://object-store.cloud.muni.cz&#39;</span><span class="p">}</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zarr_file_name</span><span class="o">=</span> <span class="s1">&#39;S3Map_zarr&#39;</span>
 <span class="n">s3</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">client_kwargs</span><span class="o">=</span><span class="n">client_kwargs</span><span class="p">,</span><span class="n">key</span><span class="o">=</span><span class="n">access_key</span><span class="p">,</span> <span class="n">secret</span><span class="o">=</span><span class="n">secret_key</span><span class="p">)</span>
-<span class="n">store_s3</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3Map</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="n">s3_prefix</span><span class="o">+</span><span class="n">zarr_file_name</span><span class="p">,</span>
-                   <span class="n">s3</span><span class="o">=</span><span class="n">s3</span><span class="p">,</span>
-                   <span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">uri</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">s3_prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">zarr_file_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">store_s3</span><span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3Map</span><span class="p">(</span><span class="n">root</span><span class="o">=</span><span class="n">uri</span><span class="p">,</span><span class="n">s3</span><span class="o">=</span><span class="n">s3</span><span class="p">,</span><span class="n">check</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-</section>
 <section id="write-your-file-down-to-zarr">
 <h3>Write your file down to zarr<a class="headerlink" href="#write-your-file-down-to-zarr" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%%time</span>
-<span class="n">ds</span><span class="o">.</span><span class="n">to_zarr</span><span class="p">(</span><span class="n">store</span><span class="o">=</span><span class="n">store_s3</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">consolidated</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">time</span> ds.to_zarr(store=store_s3, mode=&#39;w&#39;, consolidated=True)
 </pre></div>
 </div>
 </div>
@@ -750,11 +727,11 @@ It should look like</p></li>
   return to_zarr(  # type: ignore
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 1.09 s, sys: 148 ms, total: 1.24 s
-Wall time: 1min 1s
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>CPU times: user 865 ms, sys: 154 ms, total: 1.02 s
+Wall time: 52.4 s
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.backends.zarr.ZarrStore at 0x7f221f94d4a0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;xarray.backends.zarr.ZarrStore at 0x7fb264c9ca50&gt;
 </pre></div>
 </div>
 </div>
@@ -764,17 +741,13 @@ Wall time: 1min 1s
 <h3>Verify that your ‘zarr’ file is at your storage<a class="headerlink" href="#verify-that-your-zarr-file-is-at-your-storage" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-      <span class="n">client_kwargs</span><span class="o">=</span><span class="p">{</span>
-         <span class="s1">&#39;endpoint_url&#39;</span><span class="p">:</span> <span class="s1">&#39;https://object-store.cloud.muni.cz&#39;</span>
-      <span class="p">})</span>
-<span class="n">remote_path</span> <span class="o">=</span><span class="s1">&#39;tmp/&#39;</span><span class="o">+</span><span class="n">your_name</span>
-<span class="n">target</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">remote_path</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span> <span class="o">=</span> <span class="n">s3fs</span><span class="o">.</span><span class="n">S3FileSystem</span><span class="p">(</span><span class="n">anon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">client_kwargs</span><span class="o">=</span><span class="n">client_kwargs</span><span class="p">)</span>
+<span class="n">target</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="c1">#, detail=True, refresh=True)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;tmp/tinaok/2air_temperature.nc&#39;, &#39;tmp/tinaok/Tair_temperature.nc&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;tmp/tinaok/S3Map_zarr&#39;]
 </pre></div>
 </div>
 </div>
@@ -784,8 +757,7 @@ Wall time: 1min 1s
 <h3>Open your zarr storage<a class="headerlink" href="#open-your-zarr-storage" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ds_check</span> <span class="o">=</span> <span class="n">xr</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">(</span><span class="n">store_s3</span><span class="p">)</span>
-<span class="n">ds_check</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">xr</span><span class="o">.</span><span class="n">open_zarr</span><span class="p">(</span><span class="n">store_s3</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1155,17 +1127,17 @@ Attributes:
     description:  Data is from NMC initialized reanalysis\n(4x/day).  These a...
     platform:     Model
     references:   http://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanaly...
-    title:        4x daily NMC reanalysis (1948)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-77c6401c-61f9-4828-95a5-661dfa4f6d3f' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-77c6401c-61f9-4828-95a5-661dfa4f6d3f' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 2920</li><li><span class='xr-has-index'>lat</span>: 25</li><li><span class='xr-has-index'>lon</span>: 53</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-7d7b0b6e-dfed-47f8-b1a9-53b56d1deb43' class='xr-section-summary-in' type='checkbox'  checked><label for='section-7d7b0b6e-dfed-47f8-b1a9-53b56d1deb43' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>75.0 72.5 70.0 ... 20.0 17.5 15.0</div><input id='attrs-1299071a-a2b9-459c-a2a1-4cb97c580a1f' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-1299071a-a2b9-459c-a2a1-4cb97c580a1f' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-f1fd42c8-c865-4350-9892-f370a7709df4' class='xr-var-data-in' type='checkbox'><label for='data-f1fd42c8-c865-4350-9892-f370a7709df4' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><pre>array([75. , 72.5, 70. , 67.5, 65. , 62.5, 60. , 57.5, 55. , 52.5, 50. , 47.5,
+    title:        4x daily NMC reanalysis (1948)</pre><div class='xr-wrap' style='display:none'><div class='xr-header'><div class='xr-obj-type'>xarray.Dataset</div></div><ul class='xr-sections'><li class='xr-section-item'><input id='section-9707d41c-64ca-4e2e-ad54-36e1f0b5c223' class='xr-section-summary-in' type='checkbox' disabled ><label for='section-9707d41c-64ca-4e2e-ad54-36e1f0b5c223' class='xr-section-summary'  title='Expand/collapse section'>Dimensions:</label><div class='xr-section-inline-details'><ul class='xr-dim-list'><li><span class='xr-has-index'>time</span>: 2920</li><li><span class='xr-has-index'>lat</span>: 25</li><li><span class='xr-has-index'>lon</span>: 53</li></ul></div><div class='xr-section-details'></div></li><li class='xr-section-item'><input id='section-43e65ee0-990c-48fd-848c-b899b9c35c44' class='xr-section-summary-in' type='checkbox'  checked><label for='section-43e65ee0-990c-48fd-848c-b899b9c35c44' class='xr-section-summary' >Coordinates: <span>(3)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lat</span></div><div class='xr-var-dims'>(lat)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>75.0 72.5 70.0 ... 20.0 17.5 15.0</div><input id='attrs-0465c55f-0985-43d4-97b4-d27b644eefc7' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-0465c55f-0985-43d4-97b4-d27b644eefc7' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-3b757392-c331-4532-a773-4d0c4a225a42' class='xr-var-data-in' type='checkbox'><label for='data-3b757392-c331-4532-a773-4d0c4a225a42' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>Y</dd><dt><span>long_name :</span></dt><dd>Latitude</dd><dt><span>standard_name :</span></dt><dd>latitude</dd><dt><span>units :</span></dt><dd>degrees_north</dd></dl></div><div class='xr-var-data'><pre>array([75. , 72.5, 70. , 67.5, 65. , 62.5, 60. , 57.5, 55. , 52.5, 50. , 47.5,
        45. , 42.5, 40. , 37.5, 35. , 32.5, 30. , 27.5, 25. , 22.5, 20. , 17.5,
-       15. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>200.0 202.5 205.0 ... 327.5 330.0</div><input id='attrs-79c34334-97ce-4b9d-8259-f1e67ca05dda' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-79c34334-97ce-4b9d-8259-f1e67ca05dda' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-2c95e9e4-903c-4918-a082-a40885e39741' class='xr-var-data-in' type='checkbox'><label for='data-2c95e9e4-903c-4918-a082-a40885e39741' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><pre>array([200. , 202.5, 205. , 207.5, 210. , 212.5, 215. , 217.5, 220. , 222.5,
+       15. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>lon</span></div><div class='xr-var-dims'>(lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>200.0 202.5 205.0 ... 327.5 330.0</div><input id='attrs-997771e1-2ab9-4340-8568-b1a1c95a8d34' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-997771e1-2ab9-4340-8568-b1a1c95a8d34' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-c2f646ac-6c8b-43e5-badb-1f13161e3edb' class='xr-var-data-in' type='checkbox'><label for='data-c2f646ac-6c8b-43e5-badb-1f13161e3edb' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>axis :</span></dt><dd>X</dd><dt><span>long_name :</span></dt><dd>Longitude</dd><dt><span>standard_name :</span></dt><dd>longitude</dd><dt><span>units :</span></dt><dd>degrees_east</dd></dl></div><div class='xr-var-data'><pre>array([200. , 202.5, 205. , 207.5, 210. , 212.5, 215. , 217.5, 220. , 222.5,
        225. , 227.5, 230. , 232.5, 235. , 237.5, 240. , 242.5, 245. , 247.5,
        250. , 252.5, 255. , 257.5, 260. , 262.5, 265. , 267.5, 270. , 272.5,
        275. , 277.5, 280. , 282.5, 285. , 287.5, 290. , 292.5, 295. , 297.5,
        300. , 302.5, 305. , 307.5, 310. , 312.5, 315. , 317.5, 320. , 322.5,
-       325. , 327.5, 330. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2013-01-01 ... 2014-12-31T18:00:00</div><input id='attrs-63854cb1-48cf-4766-ac5e-3ebc56d1bcb2' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-63854cb1-48cf-4766-ac5e-3ebc56d1bcb2' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fca236bd-f2b4-4d3f-acf6-8e9873eee75c' class='xr-var-data-in' type='checkbox'><label for='data-fca236bd-f2b4-4d3f-acf6-8e9873eee75c' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2013-01-01T00:00:00.000000000&#x27;, &#x27;2013-01-01T06:00:00.000000000&#x27;,
+       325. , 327.5, 330. ], dtype=float32)</pre></div></li><li class='xr-var-item'><div class='xr-var-name'><span class='xr-has-index'>time</span></div><div class='xr-var-dims'>(time)</div><div class='xr-var-dtype'>datetime64[ns]</div><div class='xr-var-preview xr-preview'>2013-01-01 ... 2014-12-31T18:00:00</div><input id='attrs-c59913fd-44fa-4ab3-9895-e455411d2a9c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-c59913fd-44fa-4ab3-9895-e455411d2a9c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-a0b2aa8e-da6d-437a-ae33-34cfd24a7710' class='xr-var-data-in' type='checkbox'><label for='data-a0b2aa8e-da6d-437a-ae33-34cfd24a7710' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>long_name :</span></dt><dd>Time</dd><dt><span>standard_name :</span></dt><dd>time</dd></dl></div><div class='xr-var-data'><pre>array([&#x27;2013-01-01T00:00:00.000000000&#x27;, &#x27;2013-01-01T06:00:00.000000000&#x27;,
        &#x27;2013-01-01T12:00:00.000000000&#x27;, ..., &#x27;2014-12-31T06:00:00.000000000&#x27;,
        &#x27;2014-12-31T12:00:00.000000000&#x27;, &#x27;2014-12-31T18:00:00.000000000&#x27;],
-      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-982b05d2-e496-42f6-8885-d2a34720b70e' class='xr-section-summary-in' type='checkbox'  checked><label for='section-982b05d2-e496-42f6-8885-d2a34720b70e' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>Tair</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(730, 13, 27), meta=np.ndarray&gt;</div><input id='attrs-2e37a804-2740-49f3-ab51-3efb573e9d6c' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-2e37a804-2740-49f3-ab51-3efb573e9d6c' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-ce0b546f-77cc-469e-a501-50069b2fc741' class='xr-var-data-in' type='checkbox'><label for='data-ce0b546f-77cc-469e-a501-50069b2fc741' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>GRIB_id :</span></dt><dd>11</dd><dt><span>GRIB_name :</span></dt><dd>TMP</dd><dt><span>actual_range :</span></dt><dd>[185.16000366210938, 322.1000061035156]</dd><dt><span>dataset :</span></dt><dd>NMC Reanalysis</dd><dt><span>level_desc :</span></dt><dd>Surface</dd><dt><span>long_name :</span></dt><dd>4xDaily Air temperature at sigma level 995</dd><dt><span>parent_stat :</span></dt><dd>Other</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>statistic :</span></dt><dd>Individual Obs</dd><dt><span>units :</span></dt><dd>degK</dd><dt><span>var_desc :</span></dt><dd>Air temperature</dd></dl></div><div class='xr-var-data'><table>
+      dtype=&#x27;datetime64[ns]&#x27;)</pre></div></li></ul></div></li><li class='xr-section-item'><input id='section-ced6c53e-eea7-4f23-a0b7-bf1f71453357' class='xr-section-summary-in' type='checkbox'  checked><label for='section-ced6c53e-eea7-4f23-a0b7-bf1f71453357' class='xr-section-summary' >Data variables: <span>(1)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><ul class='xr-var-list'><li class='xr-var-item'><div class='xr-var-name'><span>Tair</span></div><div class='xr-var-dims'>(time, lat, lon)</div><div class='xr-var-dtype'>float32</div><div class='xr-var-preview xr-preview'>dask.array&lt;chunksize=(730, 13, 27), meta=np.ndarray&gt;</div><input id='attrs-38f8f7c1-063f-4e95-a9e7-afe5e2eddc10' class='xr-var-attrs-in' type='checkbox' ><label for='attrs-38f8f7c1-063f-4e95-a9e7-afe5e2eddc10' title='Show/Hide attributes'><svg class='icon xr-icon-file-text2'><use xlink:href='#icon-file-text2'></use></svg></label><input id='data-fd7e05dd-3dc3-483f-b8a9-bfd82796f2ef' class='xr-var-data-in' type='checkbox'><label for='data-fd7e05dd-3dc3-483f-b8a9-bfd82796f2ef' title='Show/Hide data repr'><svg class='icon xr-icon-database'><use xlink:href='#icon-database'></use></svg></label><div class='xr-var-attrs'><dl class='xr-attrs'><dt><span>GRIB_id :</span></dt><dd>11</dd><dt><span>GRIB_name :</span></dt><dd>TMP</dd><dt><span>actual_range :</span></dt><dd>[185.16000366210938, 322.1000061035156]</dd><dt><span>dataset :</span></dt><dd>NMC Reanalysis</dd><dt><span>level_desc :</span></dt><dd>Surface</dd><dt><span>long_name :</span></dt><dd>4xDaily Air temperature at sigma level 995</dd><dt><span>parent_stat :</span></dt><dd>Other</dd><dt><span>precision :</span></dt><dd>2</dd><dt><span>statistic :</span></dt><dd>Individual Obs</dd><dt><span>units :</span></dt><dd>degK</dd><dt><span>var_desc :</span></dt><dd>Air temperature</dd></dl></div><div class='xr-var-data'><table>
     <tr>
         <td>
             <table>
@@ -1255,7 +1227,7 @@ Attributes:
 </svg>
         </td>
     </tr>
-</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-c438b408-9190-433d-abd7-70b586083026' class='xr-section-summary-in' type='checkbox'  checked><label for='section-c438b408-9190-433d-abd7-70b586083026' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>COARDS</dd><dt><span>description :</span></dt><dd>Data is from NMC initialized reanalysis
+</table></div></li></ul></div></li><li class='xr-section-item'><input id='section-1a09b05d-6ad2-4a3c-91de-8b28eab42e49' class='xr-section-summary-in' type='checkbox'  checked><label for='section-1a09b05d-6ad2-4a3c-91de-8b28eab42e49' class='xr-section-summary' >Attributes: <span>(5)</span></label><div class='xr-section-inline-details'></div><div class='xr-section-details'><dl class='xr-attrs'><dt><span>Conventions :</span></dt><dd>COARDS</dd><dt><span>description :</span></dt><dd>Data is from NMC initialized reanalysis
 (4x/day).  These are the 0.9950 sigma level values.</dd><dt><span>platform :</span></dt><dd>Model</dd><dt><span>references :</span></dt><dd>http://www.esrl.noaa.gov/psd/data/gridded/data.ncep.reanalysis.html</dd><dt><span>title :</span></dt><dd>4x daily NMC reanalysis (1948)</dd></dl></div></li></ul></div></div></div></div>
 </div>
 </section>
@@ -1263,61 +1235,40 @@ Attributes:
 <h3>Delete the zarr file you created<a class="headerlink" href="#delete-the-zarr-file-you-created" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">remote_path</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;tmp/tinaok/2air_temperature.nc&#39;, &#39;tmp/tinaok/Tair_temperature.nc&#39;]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;tmp/tinaok/S3Map_zarr&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span><span class="o">.</span><span class="n">rm</span><span class="p">(</span><span class="s1">&#39;tmp/tinaok/zarr-demo&#39;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span><span class="o">.</span><span class="n">rm</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="s1">&#39;/S3Map_zarr&#39;</span><span class="p">,</span> <span class="n">recursive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s1">&#39;tmp/fepit&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span><span class="o">.</span><span class="n">ls</span><span class="p">(</span><span class="s1">&#39;tmp/&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;tmp/fepit/CMIP6-ocean.ipynb&#39;,
- &#39;tmp/fepit/CMIP6_example.ipynb&#39;,
- &#39;tmp/fepit/MODIS-seaice.ipynb&#39;,
- &#39;tmp/fepit/MOD_AquaCHL_ADAM.ipynb&#39;,
- &#39;tmp/fepit/UERRA_ADAM.ipynb&#39;,
- &#39;tmp/fepit/gridded_model_data_rolling_mean.ipynb&#39;,
- &#39;tmp/fepit/masked_and_weighted_average.ipynb&#39;,
- &#39;tmp/fepit/nird-ESGF.ipynb&#39;,
- &#39;tmp/fepit/projections.ipynb&#39;,
- &#39;tmp/fepit/read-AERONET.ipynb&#39;,
- &#39;tmp/fepit/read-MODIS-SUB-XYD-xarray.ipynb&#39;,
- &#39;tmp/fepit/read-MODIS.ipynb&#39;,
- &#39;tmp/fepit/save_larger_files_to_forces_bucket.ipynb&#39;,
- &#39;tmp/fepit/save_to_forces_bucket.ipynb&#39;,
- &#39;tmp/fepit/search_and_load_with_esgf_opendap.ipynb&#39;,
- &#39;tmp/fepit/some-xarray-pandas-presentation_Sara.ipynb&#39;,
- &#39;tmp/fepit/xarray2pandas.ipynb&#39;,
- &#39;tmp/fepit/xesmf_regridding.ipynb&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">target</span><span class="o">.</span><span class="n">rm</span><span class="p">(</span><span class="s1">&#39;tmp/fepit/xesmf_regridding.ipynb&#39;</span><span class="p">)</span>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;tmp/fepit&#39;,
+ &#39;tmp/fepitzarr-demo&#39;,
+ &#39;tmp/guillaumeeb&#39;,
+ &#39;tmp/xarray-demo-dask-s3&#39;]
 </pre></div>
 </div>
 </div>
 </div>
 <div class="alert alert-danger alert-info">
-    <b>one users can delete another user's file.... </b>
+    <b>one users can delete another user's file.... So please be carefull especially when using recursive=True </b>
 </div>
 </section>
 </section>
@@ -1350,7 +1301,7 @@ Attributes:
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="save_to_cesnet_bucket_netcdf.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="save_to_cesnet_bucket_zarr-without_find.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
